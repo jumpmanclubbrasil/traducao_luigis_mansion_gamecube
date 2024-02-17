@@ -1,0 +1,24 @@
+1. Extraia a ISO do game com o "Gamecube Rebuilder" ou outro app, ou mesmo o dolphin
+
+2. Com o game extraido vá na pasta "Event" alguns dos arquivos ".szp" de lá contêm 
+os textos do game.
+
+3. Pegue um deles que possua diálogos e ponha aqui na pasta das ferramentas, em seguida solte em cima do "arcExtract.exe"
+
+4. Será gerada uma pasta com o nome do arquivo, dentro dela haverá mais duas pastas, a que nos importa é a 
+pasta "message", nela contém o arquivo ".csv" que é o texto, esse texto po ser editado no notepad++, VS code, etc.
+
+5. Basta colar o respectivo arquivo já traduzido pra respectiva pasta, e substituir.
+
+6. Com o arquivo traduzido no seu devido lugar, volte pra pasta principal com as ferramentas, 
+e joque a pasta principal que vc extraiu em cima do "ArcPack.exe" para assim reempacotar o que você acabou de
+modificar.
+
+7. No fim será gerado um arquivo ".arc" Ele é grande, bem maior que o intocado do game. abara o "yay.bat"
+e jogue ele em cima da tela do "DOS" que vai aparecer.
+
+8. Feito isso, será gerado um arquivo ".szp" igual ao original, agora pasta voltar á pasta 
+da ISO extraída e substituir o original por esse.
+
+9. Agora basta recompilar a ISO, vá no "Gamecube Rebuilder" Clique na opção "root" pra ler a pasta da ISO 
+extraída, depois ainda no menu root, escolha a opção "rebuild" pra gerar a nova ISO.

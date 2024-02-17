@@ -1,0 +1,1 @@
+Tga2bti.exe -4A3 XXX.tga novo_BTI.bti

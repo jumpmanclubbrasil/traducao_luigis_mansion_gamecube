@@ -1,0 +1,57 @@
+.bti file format
+================
+
+Version 1.02
+
+NOTE: Some .bti files are Yaz0-compressed (if the first 4 bytes are 'Yaz0'),
+if this is the case, you have to uncompress them. Check out yagcd or
+www.amnoid.de/gc/ on how to do that.
+
+A bti file stores a single image, but can store several mipmaps. The file
+starts with a TextureHeader (which is used in the TEX1 section of
+bmd/bdl and jpa files to store textures as well). It looks like this:
+
+struct TextureHeader
+{
+  u8 format;  //data format - seems to match tpl's format (see yagcd)
+  u8 unknown;
+  u16 width;
+  u16 height;
+  
+  /*
+    from gx.h:
+    0: clamp to edge
+    1: repeat
+    2: mirror
+  */
+  u8 wrapS;
+  u8 wrapT;
+
+  u8 unknown3;
+  u8 paletteFormat; //palette format - matches tpl palette format (-> yagcd)
+  u16 paletteNumEntries;
+  u32 paletteOffset; //palette data
+
+
+  u32 unknown5;
+  u16 unknown6; //prolly two u8s, first is 5 or 1, second 1 most of the time
+  u16 unknown7; //0 most of the time, sometimes 0x10, 0x18, 0x20, 0x28
+  u8 mipmapCount;
+  u8 unknown8;
+  u16 unknown9;
+
+  u32 dataOffset; //image data
+
+  //some of the unknown data could be render state?
+  //(lod bias, min/mag filter, ...)
+};
+
+Offsets are relative to TextureHeader (this is important in bmd/bdl files).
+Check the accompanying source code for details.
+
+Details on dxt3 compression can be found here:
+http://www.hardwarecentral.com/hardwarecentral/reports/140/4
+
+Let me know if you discover what the unknown fields mean:
+http://www.emutalk.net/showthread.php?s=ec36fcfefebb44cd0dddfebf656db018&t=26919
+thakis
